@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Label from './Label';
 import Button from './Button';
 import Modal from 'react-modal';
@@ -28,9 +28,9 @@ class Application extends Component {
             this.setState({
                 labelValue: "A"
             });
-            if(buttonB) {
-                this.openModal();
-            }
+        }
+        if(buttonB) {
+            this.openModal();
         }
     }
 
@@ -65,7 +65,7 @@ class Application extends Component {
         return (
             <div>
                 <Label currentValue={this.state.labelValue}/>
-                <Link to="/a"><Button id="A" onClick={this.handleClick} text="A"/></Link>
+                <NavLink to="/a"><Button id="A" onClick={this.handleClick} text="A"/></NavLink>
                 <Button id="B" onClick={this.handleClick} text="B"/>
 
                 {/*FIRST MODAL*/}
@@ -80,7 +80,7 @@ class Application extends Component {
                 <Modal isOpen={this.state.secondModalOpen} style={modalStyle}>
                     <h1>Second Modal</h1>
                     <hr/>
-                    <Link to="/b"><button>Ok</button></Link>
+                    <NavLink to="/b"><button>Ok</button></NavLink>
                     <button id="closeSecondModal" onClick={this.closeModal}>Cancel</button>
                 </Modal>
             </div>

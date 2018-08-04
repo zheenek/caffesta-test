@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 import Application from './components/App';
 import PageA from './components/PageA';
 import PageB from './components/PageB';
 
+//const baseURL = process.env.PUBLIC_URL;
+
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Switch>
           <div>
             <Route exact path="/" component={Application}/>
@@ -15,7 +17,7 @@ class App extends Component {
             <Route path="/b" component={PageB} />
           </div>
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
