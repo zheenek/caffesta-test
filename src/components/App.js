@@ -17,15 +17,24 @@ const modalStyle = {
 
 class Application extends Component {
     state = {
+        letter: "A",
+        isActive: true,
         firstModalOpen: false,
         secondModalOpen: false
     }
 
-    handleClick = () => {
-        const buttonB = document.getElementById("B");
-        if(buttonB) {
-            this.openModal();
-        }
+    setA = () => {
+        this.setState({
+            letter: "A"
+        });
+        console.log(this.state.letter);
+    }
+
+    setB = () => {
+        this.setState({
+            letter: "B"
+        });
+        console.log(this.state.letter);
     }
 
     openModal = () => {
@@ -58,9 +67,9 @@ class Application extends Component {
     render() {
         return (
             <div className="container">
-                <Label currentValue={this.props.labelValue}/>
-                <NavLink to="/a"><Button id="A" className="active" onClick={this.handleClick} text="A"/></NavLink>
-                <Button id="B" onClick={this.handleClick} text="B"/>
+                <Label currentValue={this.state.letter}/>
+                <NavLink exact to="/a"><Button id="btnA" onClick={this.setA} text="A"/></NavLink>
+                <Button id="btnB" onClick={this.openModal} text="B"/>
 
                 {/*FIRST MODAL*/}
                 <Modal isOpen={this.state.firstModalOpen} style={modalStyle} ariaHideApp={false}>
@@ -72,7 +81,7 @@ class Application extends Component {
                 {/*SECOND MODAL*/}
                 <Modal isOpen={this.state.secondModalOpen} style={modalStyle} ariaHideApp={false}>
                     <h2>Second Modal</h2>
-                    <NavLink to="/b"><Button text="Ok" /></NavLink>
+                    <NavLink to="/b"><Button id="openB" onClick={this.setB} text="Ok" /></NavLink>
                     <Button id="closeSecondModal" onClick={this.closeModal} text="Cancel" />
                 </Modal>
             </div>
