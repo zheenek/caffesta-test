@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Application from './App';
-import {Route, Link} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 
 class BackButton extends Component {
     render() {
         return (
             <div>
-                <Link to="/"><button onClick={this.props.onClick}>Back</button></Link>
+                <NavLink to="/"><button onClick={this.props.onClick}>Back</button></NavLink>
                 <Route exact path="/" component={Application}/>
             </div>
         );

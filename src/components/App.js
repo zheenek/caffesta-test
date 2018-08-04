@@ -17,16 +17,12 @@ const modalStyle = {
 
 class Application extends Component {
     state = {
-        labelValue: "A",
         firstModalOpen: false,
         secondModalOpen: false
     }
 
     handleClick = () => {
         const buttonB = document.getElementById("B");
-        if(this.state.labelValue === "A") {
-            
-        }
         if(buttonB) {
             this.openModal();
         }
@@ -62,24 +58,22 @@ class Application extends Component {
     render() {
         return (
             <div className="container">
-                <Label currentValue={this.state.labelValue}/>
-                <NavLink to="/a"><Button id="A" onClick={this.handleClick} text="A"/></NavLink>
+                <Label currentValue={this.props.labelValue}/>
+                <NavLink to="/a"><Button id="A" className="active" onClick={this.handleClick} text="A"/></NavLink>
                 <Button id="B" onClick={this.handleClick} text="B"/>
 
                 {/*FIRST MODAL*/}
-                <Modal isOpen={this.state.firstModalOpen} style={modalStyle}>
+                <Modal isOpen={this.state.firstModalOpen} style={modalStyle} ariaHideApp={false}>
                     <h2>First Modal</h2>
-                    <hr/>
-                    <button onClick={this.openSecondModal}>Ok</button>
-                    <button id="closeFirstModal" onClick={this.closeModal}>Cancel</button>
+                    <Button onClick={this.openSecondModal} text="Ok" />
+                    <Button id="closeFirstModal" onClick={this.closeModal} text="Cancel"/>
                 </Modal>
 
                 {/*SECOND MODAL*/}
-                <Modal isOpen={this.state.secondModalOpen} style={modalStyle}>
+                <Modal isOpen={this.state.secondModalOpen} style={modalStyle} ariaHideApp={false}>
                     <h2>Second Modal</h2>
-                    <hr/>
-                    <NavLink to="/b"><button>Ok</button></NavLink>
-                    <button id="closeSecondModal" onClick={this.closeModal}>Cancel</button>
+                    <NavLink to="/b"><Button text="Ok" /></NavLink>
+                    <Button id="closeSecondModal" onClick={this.closeModal} text="Cancel" />
                 </Modal>
             </div>
         );

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  outline: 0;
   font-family: sans-serif;
 }
 
@@ -28,9 +29,18 @@ button:hover {
   color: #fff;
 }
 
+button:visited {
+  outline: 0;
+}
+
 button.active {
-  color: violet !important;
-  border: 2px solid violet !important;
+  color: rgb(167, 16, 255);
+  border: 2px solid rgb(167, 16, 255);
+}
+
+button.active:hover {
+  background-color: rgb(167, 16, 255);
+  color: #fff;
 }
 
 .container {
