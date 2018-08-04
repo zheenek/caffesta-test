@@ -10,11 +10,9 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <div>
             <Route exact path="/" component={Application}/>
             <Route path="/a" render={() =>(<Page letter="A"/>)} />
             <Route path="/b" render={() =>(<Page letter="B"/>)} />
-          </div>
         </Switch>
       </Router>
     );
