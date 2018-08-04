@@ -25,9 +25,7 @@ class Application extends Component {
     handleClick = () => {
         const buttonB = document.getElementById("B");
         if(this.state.labelValue === "A") {
-            this.setState({
-                labelValue: "A"
-            });
+            
         }
         if(buttonB) {
             this.openModal();
@@ -63,14 +61,14 @@ class Application extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Label currentValue={this.state.labelValue}/>
                 <NavLink to="/a"><Button id="A" onClick={this.handleClick} text="A"/></NavLink>
                 <Button id="B" onClick={this.handleClick} text="B"/>
 
                 {/*FIRST MODAL*/}
                 <Modal isOpen={this.state.firstModalOpen} style={modalStyle}>
-                    <h1>First Modal</h1>
+                    <h2>First Modal</h2>
                     <hr/>
                     <button onClick={this.openSecondModal}>Ok</button>
                     <button id="closeFirstModal" onClick={this.closeModal}>Cancel</button>
@@ -78,7 +76,7 @@ class Application extends Component {
 
                 {/*SECOND MODAL*/}
                 <Modal isOpen={this.state.secondModalOpen} style={modalStyle}>
-                    <h1>Second Modal</h1>
+                    <h2>Second Modal</h2>
                     <hr/>
                     <NavLink to="/b"><button>Ok</button></NavLink>
                     <button id="closeSecondModal" onClick={this.closeModal}>Cancel</button>

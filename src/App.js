@@ -6,12 +6,15 @@ import Page from './components/Page';
 //const baseURL = process.env.PUBLIC_URL;
 
 class App extends Component {
+
+  
+
   render() {
     return (
       <Router>
         <Switch>
           <div>
-            <Route exact path="/" component={Application}/>
+            <Route exact path="/" render={() => (<Application />)}/>
             <Route path="/a" render={() =>(<Page letter="A"/>)} />
             <Route path="/b" render={() =>(<Page letter="B"/>)} />
           </div>
